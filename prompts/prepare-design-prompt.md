@@ -4,6 +4,14 @@ every dependency must live inside the folder, referenced by paths relative to th
 There is no safety net: missing fonts, images, or sizes fail **silently** (tofu, blank, or wrong
 dimensions), so build for that.
 
+**Preserve my current edits exactly.** Package the design *as it stands right now*, with every edit,
+adjustment, and tweak I've made carried through verbatim — text, positions, sizes, colors, spacing,
+line breaks, all of it. Do **not** regenerate it from scratch, re-lay it out, "clean it up",
+normalize, or revert to an earlier/default version. The exporter renders the literal HTML, so the
+folder must match what I have now. If a tweak relied on something HTML won't render on its own (e.g.
+a typed line break or extra spaces — see **Text & line breaks** below), make it explicit so it still
+shows exactly as I intended.
+
 Deliver the result as a **.zip of one folder**, shaped like:
 
 ```
@@ -69,4 +77,6 @@ class is exactly `slide` or `post` (never both, never another) and its rule sets
 3–4 digit px together; (d) each `@font-face` has a local `.woff2` `src` and a latin-ext
 `unicode-range`; (e) no `loading="lazy"`, no JS-rendered content, no `<video>`/`<canvas>`, and no
 chrome outside `.nav`/`#tw-root`; (f) intentional line breaks are real (`<br>` or
-`white-space: pre-line`), not bare newlines. Then **list every file you created** with its relative path.
+`white-space: pre-line`), not bare newlines; (g) the folder reflects my CURRENT HTML with every edit
+and tweak preserved (nothing regenerated, normalized, or reverted). Then **list every file you
+created** with its relative path.
