@@ -50,6 +50,13 @@ Requirements:
 5. **Authoring chrome** — any nav, toolbar, control panel, page counter, or watermark must use the
    class `nav` or id `tw-root` (the only selectors the exporter removes), or be absent. Anything
    else is captured into every image.
+6. **Text & line breaks** — HTML collapses raw newlines and repeated spaces into a single space, so
+   an Enter / `\n` typed in the markup renders as nothing (no break, no blank line). Make every
+   intentional break explicit: `<br>` for a hard break, or `white-space: pre-line` (honor `\n`) /
+   `pre-wrap` on the element; use `margin`/`padding` for spacing, never a blank line. Don't depend on
+   where text *happens* to wrap in a preview — at the native artboard width it may wrap to a
+   different number of lines and overlap neighbors; if a line must break at a specific point set it
+   with `<br>`, and if it must stay on one line use `white-space: nowrap` (with a box wide enough).
 
 Never: inline assets as `data:` URIs · leave any network reference (`fonts.googleapis.com`,
 `fonts.gstatic.com`, `googleusercontent.com`, any `http(s)://` or protocol-relative `//`) · ship a
@@ -61,4 +68,5 @@ exists in the tree, relative to the `.html`, with correct `../` depth and exact 
 class is exactly `slide` or `post` (never both, never another) and its rule sets width and height as
 3–4 digit px together; (d) each `@font-face` has a local `.woff2` `src` and a latin-ext
 `unicode-range`; (e) no `loading="lazy"`, no JS-rendered content, no `<video>`/`<canvas>`, and no
-chrome outside `.nav`/`#tw-root`. Then **list every file you created** with its relative path.
+chrome outside `.nav`/`#tw-root`; (f) intentional line breaks are real (`<br>` or
+`white-space: pre-line`), not bare newlines. Then **list every file you created** with its relative path.
