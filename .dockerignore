@@ -1,0 +1,16 @@
+node_modules
+uploads
+out
+sketchbook
+.git
+.gitignore
+.claude
+.env
+.env.*
+*.orig
+npm-debug.log
+Dockerfile
+.dockerignore
+README.md
+AGENTS.md
+Claude-Design-Export-App.md

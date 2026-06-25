@@ -1,0 +1,18 @@
+# Render Blueprint — deploy the exporter as a Docker web service.
+# In Render: New → Blueprint → pick this repo → set the two BASIC_AUTH_* values → Create.
+services:
+  - type: web
+    name: claude-design-exporter
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      # Bind all interfaces in the container (Render maps the public $PORT itself).
+      - key: HOST
+        value: 0.0.0.0
+      # Password gate — set these in the Render dashboard (sync:false = prompt, not stored in git).
+      - key: BASIC_AUTH_USER
+        sync: false
+      - key: BASIC_AUTH_PASS
+        sync: false

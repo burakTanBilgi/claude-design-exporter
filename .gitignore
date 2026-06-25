@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# runtime data (imported designs + generated output)
+uploads/
+out/
+
+# local dev tooling (private sketcher skill viewer)
+sketchbook/
+
+# agent / editor / OS local state
+.claude
+.claude/
+.env
+.env.*
+.DS_Store
+
+# prepare backups (created next to a design's CSS/HTML)
+*.orig

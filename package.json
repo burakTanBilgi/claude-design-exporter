@@ -1,0 +1,45 @@
+{
+  "name": "claude-design-exporter",
+  "version": "1.0.0",
+  "description": "Pixel-perfect PNG/JPG/WEBP/AVIF/PDF exporter for Claude-made HTML design slides (Playwright + sharp + pdf-lib).",
+  "type": "module",
+  "license": "MIT",
+  "author": "burakTanBilgi",
+  "homepage": "https://github.com/burakTanBilgi/claude-design-exporter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burakTanBilgi/claude-design-exporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/burakTanBilgi/claude-design-exporter/issues"
+  },
+  "keywords": [
+    "playwright",
+    "screenshot",
+    "html-to-image",
+    "html-to-pdf",
+    "design-export",
+    "social-media",
+    "claude"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "design-export": "./export.mjs"
+  },
+  "scripts": {
+    "web": "node server.mjs",
+    "prepare-source": "node export.mjs prepare",
+    "export": "node export.mjs export --design all"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.60.0",
+    "sharp": "^0.34.5",
+    "sirv": "^3.0.0"
+  }
+}
